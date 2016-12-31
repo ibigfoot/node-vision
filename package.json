@@ -1,0 +1,20 @@
+{
+  "name": "vision",
+  "version": "1.0.0",
+  "description": "App that takes an image URL and attempts to describe what it sees using the Google Vision API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "fs": "0.0.1-security",
+    "googleapis": "^16.0.0",
+    "https": "^1.0.0"
+  }
+}

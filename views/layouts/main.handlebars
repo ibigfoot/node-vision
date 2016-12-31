@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vision API Demo</title>
+	<link rel="stylesheet" type="text/css" href="/styles/salesforce-lightning-design-system.min.css" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="/styles/main.css" />
+	<script src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/handlebars.min-latest.js"></script>
+	<script type="text/javascript" src="/js/client.js"></script>	
+</head>
+<body>
+	<div class="slds-grid slds-wrap container">
+		<div class="slds-col slds-size--1-of-1 slds-p-bottom--x-small" style="border-bottom: 1px solid grey;">
+			<div class="slds-grid slds-grid--align-spread" style="min-height: 7em;">
+				<div class="slds-col slds-size--1-of-6 slds-align--absolute-center ">
+					<a href="/">
+						<span class="slds-avatar slds-avatar--large"><img src="/images/logo-noname.svg"/></span>
+					</a>
+				</div>
+				<div class="slds-col slds-size--4-of-6 slds-align--absolute-center slds-text-heading--large">
+					{{page_heading}}
+				</div>
+				<div class="slds-col slds-size--1-of-6 slds-global-header__item slds-m-horizontal--x-large">
+
+					{{#if auth_session.authenticated}}
+						<div class="slds-media ">
+							<div class="slds-media__body slds-p-top--xx-small">
+								{{auth_session.user.displayName}}<br />
+								{{auth_session.user.username}}<br />
+				    			<a href="/logout"><button class="slds-button">Logout</button></a>
+				  			</div>
+				  			<div class="slds-media__figure--reverse">
+				    			<span class="slds-avatar slds-avatar--circle"><img src="${photos.thumbnail}?oauth_token=${access_token}" alt="{{auth_session.user.displayName}}" /></span> 
+				  			</div>
+						</div>
+					{{else}}
+						<div id="logon_buttons" class="slds-m-top--large">
+							<a id="prod" class="logon-link"><button class="slds-button slds-button--neutral">Production</button></a>
+							<a id="sandbox" class="logon-link"><button class="slds-button slds-button--neutral">Sandbox</button></a>
+						</div>
+						<div id="custom_domain_elements" class="slds-form-element" style="display:none">
+							<label class="slds-form-element__label" for="custom_domain_input">Custom Domain</label>
+							<div class="slds-form-element__control">
+								<input id="custom_domain_input" class="slds-input" type="text" placeholder="<<your>>.my.salesforce.com" />
+							</div>
+						</div>
+						<div class="slds-form-element slds-m-top--x-small">
+							<div class="slds-form-element__control">
+								<span class="slds-checkbox">
+									<input type="checkbox" name="custom_domain" id="custom_domain" />
+									<label class="slds-checkbox__label" for="custom_domain">
+										<span class="slds-checkbox--faux"></span>
+										<span class="slds-form-element__label">Use Custom Domain</span>
+									</label>
+									<a id="custom" class="logon-link" style="display:none"><button class="slds-button">Logon</button></a>
+								</span>
+							</div>
+						</div>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+
+		<div class="slds-col slds-size--1-of-1">
+			{{{body}}}
+		</div>
+
+		<div class="slds-col slds-size--1-of-1 slds-align--absolute-center" >
+			<footer class="footer">
+				Built with <a href="https://nodejs.org" target="_blank">Node.js</a>, the 
+				<a href="https://www.lightningdesignsystem.com/" target="_blank">Salesforce Lightning Design System</a> and 
+				<a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction" target="_blank">
+					<svg aria-hidden="true" class="slds-icon" style="fill: rgb(72,69,141);">
+							<use xlink:href="/images/logo-heroku-white.svg#header_-_Heroku"></use>
+					</svg>
+				</a>
+			</footer>
+		</div>
+
+	</div>
+</body>
+</html>
