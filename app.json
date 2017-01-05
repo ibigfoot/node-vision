@@ -1,0 +1,13 @@
+{
+  "name": "Node.js Google Vision API Example",
+  "description": "Node.js app that calls to the Google Vision API",
+  "repository": "https://github.com/ibigfoot/node-vision",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["node", "express", "google","vision"],
+  "env": {
+    "API_KEY": {
+      "description": "The API Key for your Google Vision API. See the Vision API documentation for instructions on how to generate this if you haven't yet.",
+      "value": "<YOUR_API_KEY>"
+    }
+  }
+}
