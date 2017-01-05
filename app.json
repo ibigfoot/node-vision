@@ -1,5 +1,5 @@
 {
-  "name": "Node.js Google Vision API Example",
+  "name": "Google Vision API Example",
   "description": "Node.js app that calls to the Google Vision API",
   "repository": "https://github.com/ibigfoot/node-vision",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
